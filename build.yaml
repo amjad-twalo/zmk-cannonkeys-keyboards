@@ -67,11 +67,10 @@ include:
     artifact-name: link_left_studio
 
   # Photon as BLE peripheral (for dongle use)
-  # -DCONFIG_ZMK_USB=n prevents linker errors from the photon DTS having
-  # USB enabled while ZMK disables HID for split peripherals. USB charging
-  # still works — only the HID/data layer is disabled.
+  # ZMK_USB is disabled automatically by Kconfig.defconfig when ZMK_SPLIT=y
+  # without ZMK_SPLIT_ROLE_CENTRAL=y (i.e. peripheral role).
   - board: photon
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_USB=n -DCONFIG_USB_DEVICE_STACK=n
+    cmake-args: -DCONFIG_ZMK_SPLIT=y
     artifact-name: photon_peripheral
 
   # Seeed XIAO BLE as the USB central dongle
