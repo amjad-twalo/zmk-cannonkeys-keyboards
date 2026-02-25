@@ -74,6 +74,6 @@ include:
     artifact-name: photon_peripheral
 
   # Seeed XIAO BLE as the USB central dongle
-  - board: xiao_ble//zmk
+  - board: xiao_ble
     shield: photon_dongle
     artifact-name: photon_dongle
