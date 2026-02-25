@@ -64,4 +64,17 @@ include:
     shield: nice_view
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: link_left_studio  
+    artifact-name: link_left_studio
+
+  # Photon as BLE peripheral (for dongle use)
+  # -DCONFIG_ZMK_USB=n prevents linker errors from the photon DTS having
+  # USB enabled while ZMK disables HID for split peripherals. USB charging
+  # still works — only the HID/data layer is disabled.
+  - board: photon
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_USB=n
+    artifact-name: photon_peripheral
+
+  # Seeed XIAO BLE as the USB central dongle
+  - board: xiao_ble//zmk
+    shield: photon_dongle
+    artifact-name: photon_dongle
