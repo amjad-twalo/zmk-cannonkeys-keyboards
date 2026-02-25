@@ -71,7 +71,7 @@ include:
   # USB enabled while ZMK disables HID for split peripherals. USB charging
   # still works — only the HID/data layer is disabled.
   - board: photon
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_USB=n
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_USB=n -DCONFIG_USB_DEVICE_STACK=n
     artifact-name: photon_peripheral
 
   # Seeed XIAO BLE as the USB central dongle

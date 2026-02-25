@@ -6,28 +6,16 @@
  * Overlay for the Seeed XIAO BLE acting as the central USB dongle
  * for the Photon keyboard peripheral.
  *
- * The dongle doesn't have any physical keys of its own — it just
- * receives key events from the Photon over BLE and forwards them
- * to the host via USB HID. We still need to declare the keymap
- * and matrix transform so ZMK can compile the correct key bindings.
+ * The dongle has no physical keys — it receives key events from the
+ * Photon over BLE and forwards them to the host via USB HID.
+ * No kscan is needed on a pure split central.
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
     chosen {
-        zmk,kscan = &kscan0;
         zmk,matrix-transform = &keymap_transform_0;
-    };
-
-    /*
-     * The dongle has no physical key matrix — this is a dummy kscan
-     * required by ZMK's split central to satisfy the build system.
-     * Key events come from the peripheral (Photon) over BLE.
-     */
-    kscan0: kscan {
-        compatible = "zmk,kscan-gpio-direct";
-        input-gpios;
     };
 
     /*
