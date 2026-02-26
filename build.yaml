@@ -73,8 +73,7 @@ include:
     shield: settings_reset
 
   # Photon as BLE peripheral (for dongle use)
-  - board: photon
+  - board: xiao_ble
     shield: photon
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: photon
-    shield: settings_reset
+
