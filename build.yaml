@@ -66,14 +66,15 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: link_left_studio
 
-  # Photon as BLE peripheral (for dongle use)
-  # ZMK_USB is disabled automatically by Kconfig.defconfig when ZMK_SPLIT=y
-  # without ZMK_SPLIT_ROLE_CENTRAL=y (i.e. peripheral role).
-  - board: photon
-    cmake-args: -DCONFIG_ZMK_SPLIT=y
-    artifact-name: photon_peripheral
-
   # Seeed XIAO BLE as the USB central dongle
   - board: xiao_ble
     shield: photon_dongle
-    artifact-name: photon_dongle
+  - board: xiao_ble
+    shield: settings_reset
+
+  # Photon as BLE peripheral (for dongle use)
+  - board: photon
+    shield: photon
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: photon
+    shield: settings_reset
