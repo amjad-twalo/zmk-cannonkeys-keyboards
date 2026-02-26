@@ -64,4 +64,16 @@ include:
     shield: nice_view
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: link_left_studio  
+    artifact-name: link_left_studio
+
+  # Photon as BLE peripheral (for dongle use)
+  # ZMK_USB is disabled automatically by Kconfig.defconfig when ZMK_SPLIT=y
+  # without ZMK_SPLIT_ROLE_CENTRAL=y (i.e. peripheral role).
+  - board: photon
+    cmake-args: -DCONFIG_ZMK_SPLIT=y
+    artifact-name: photon_peripheral
+
+  # Seeed XIAO BLE as the USB central dongle
+  - board: xiao_ble
+    shield: photon_dongle
+    artifact-name: photon_dongle
