@@ -1,7 +1,7 @@
 if SHIELD_PHOTON_DONGLE
 
 config ZMK_KEYBOARD_NAME
-    default "Photon Dongle"
+    default "Photongle"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
