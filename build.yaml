@@ -65,3 +65,16 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: link_left_studio  
+
+  # Seeed XIAO BLE as the USB central dongle
+  - board: xiao_ble
+    shield: photon_dongle
+  - board: xiao_ble
+    shield: settings_reset
+
+  # Photon as BLE peripheral (for dongle use)
+  - board: photon
+    shield: photon
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: photon
+    shield: settings_reset
