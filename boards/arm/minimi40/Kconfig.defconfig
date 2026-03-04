@@ -6,6 +6,9 @@ if BOARD_MINIMI40
 config ZMK_KEYBOARD_NAME
     default "Minimi40_W"
 
+config ZMK_BOARD_COMPAT
+    def_bool y
+
 if USB_DEVICE_STACK
 
 config USB_NRFX
