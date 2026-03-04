@@ -1,0 +1,7 @@
+if SHIELD_SETTINGS_RESET
+
+# Required for ZMK CI board compatibility check
+config ZMK_BOARD_COMPAT
+    def_bool y
+
+endif # SHIELD_SETTINGS_RESET

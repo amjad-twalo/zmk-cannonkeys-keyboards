@@ -74,6 +74,7 @@ include:
     artifact-name: photon_dongle_studio
   - board: xiao_ble
     shield: settings_reset
+    
 
   # Photon as BLE peripheral (for dongle use)
   - board: photon
