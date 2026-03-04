@@ -6,6 +6,9 @@ if BOARD_PHOTON
 config ZMK_KEYBOARD_NAME
     default "Photon"
 
+config ZMK_BOARD_COMPAT
+    def_bool y
+
 if USB_DEVICE_STACK
 
 config USB_NRFX

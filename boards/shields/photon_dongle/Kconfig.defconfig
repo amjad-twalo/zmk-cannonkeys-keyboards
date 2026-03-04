@@ -3,6 +3,9 @@ if SHIELD_PHOTON_DONGLE
 config ZMK_KEYBOARD_NAME
     default "Photon Dongle"
 
+config ZMK_BOARD_COMPAT
+    def_bool y
+
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
