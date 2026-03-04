@@ -70,11 +70,11 @@ include:
   - board: xiao_ble
     shield: photon_dongle
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_USB_LOGGING=y
     artifact-name: photon_dongle_studio
   - board: xiao_ble
     shield: settings_reset
-    
+
 
   # Photon as BLE peripheral (for dongle use)
   - board: photon
