@@ -23,6 +23,6 @@ config ZMK_BLE
     default y
 
 config ZMK_USB
-    default y
+    default y if !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
 
 endif # BOARD_PHOTON
