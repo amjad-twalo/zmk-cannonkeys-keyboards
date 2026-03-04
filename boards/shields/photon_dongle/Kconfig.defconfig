@@ -6,19 +6,20 @@ config ZMK_KEYBOARD_NAME
 config ZMK_BOARD_COMPAT
     def_bool y
 
-config ZMK_SPLIT_ROLE_CENTRAL
+config ZMK_SPLIT
     default y
 
-config ZMK_SPLIT
+config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 1
 
+# 1 peripheral + 5 BLE profiles + 1 headroom
 config BT_MAX_CONN
-    default 2
+    default 7
 
 config BT_MAX_PAIRED
-    default 2
+    default 7
 
 endif # SHIELD_PHOTON_DONGLE
