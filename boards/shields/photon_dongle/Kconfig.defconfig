@@ -6,6 +6,10 @@ config ZMK_KEYBOARD_NAME
 config ZMK_BOARD_COMPAT
     def_bool y
 
+# Dongle is the USB HID device — USB must always be enabled
+config ZMK_USB
+    default y
+
 config ZMK_SPLIT
     default y
 
