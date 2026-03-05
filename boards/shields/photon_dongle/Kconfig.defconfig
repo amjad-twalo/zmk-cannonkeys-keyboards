@@ -49,4 +49,9 @@ config BT_BUF_ACL_RX_SIZE
 config BT_BUF_ACL_TX_SIZE
     default 255
 
+# Disable BLE privacy — use a stable address so the peripheral's
+# directed advertising can find us after a reboot
+config BT_PRIVACY
+    default n
+
 endif # SHIELD_PHOTON_DONGLE

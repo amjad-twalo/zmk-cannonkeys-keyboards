@@ -46,5 +46,5 @@ include:
 
   # Photon as BLE peripheral (for dongle use)
   - board: photon
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_SLEEP=n
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_SLEEP=n -DCONFIG_BT_PRIVACY=n
     artifact-name: photon_peripheral
