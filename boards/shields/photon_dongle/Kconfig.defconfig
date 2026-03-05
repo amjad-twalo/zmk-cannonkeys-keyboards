@@ -10,6 +10,13 @@ config ZMK_BOARD_COMPAT
 config ZMK_USB
     default y
 
+# BLE is required for the split central to scan and connect to the peripheral
+config ZMK_BLE
+    default y
+
+config BT_CTLR
+    default BT
+
 config ZMK_SPLIT
     default y
 
