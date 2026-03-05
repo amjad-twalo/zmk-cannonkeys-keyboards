@@ -46,5 +46,9 @@ include:
 
   # Photon as BLE peripheral (for dongle use)
   - board: photon
-    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_SLEEP=n
     artifact-name: photon_peripheral
+  # Debug: peripheral with USB logging to diagnose BLE reconnection
+  - board: photon
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n -DCONFIG_ZMK_SLEEP=n -DCONFIG_ZMK_USB=y -DCONFIG_ZMK_USB_LOGGING=y
+    artifact-name: photon_peripheral_debug
