@@ -10,6 +10,11 @@ config ZMK_BOARD_COMPAT
 config ZMK_USB
     default y
 
+# Let ZMK control USB init — xiao_ble sets INITIALIZE_AT_BOOT=y which
+# causes usb_enable() to be called before ZMK sets up HID endpoints
+config USB_DEVICE_INITIALIZE_AT_BOOT
+    default n
+
 # BLE is required for the split central to scan and connect to the peripheral
 config ZMK_BLE
     default y
