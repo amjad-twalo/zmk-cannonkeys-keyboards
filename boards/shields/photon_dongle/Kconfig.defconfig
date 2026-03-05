@@ -38,4 +38,15 @@ config BT_MAX_CONN
 config BT_MAX_PAIRED
     default 7
 
+# Improve BLE connection stability for split communication
+config ZMK_BLE_EXPERIMENTAL_CONN
+    default y
+
+# Larger ACL buffers for reliable split data transfer
+config BT_BUF_ACL_RX_SIZE
+    default 255
+
+config BT_BUF_ACL_TX_SIZE
+    default 255
+
 endif # SHIELD_PHOTON_DONGLE
