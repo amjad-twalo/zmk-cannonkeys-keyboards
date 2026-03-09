@@ -1,0 +1,12 @@
+# Copyright (c) 2024 CannonKeys LLC
+# SPDX-License-Identifier: MIT
+
+if SHIELD_SETTINGS_RESET
+
+config ZMK_BOARD_COMPAT
+    default y
+
+config ZMK_KEYBOARD_NAME
+    default "Settings Reset"
+
+endif # SHIELD_SETTINGS_RESET

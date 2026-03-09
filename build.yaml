@@ -1,67 +1,29 @@
-# This file generates the GitHub Actions matrix.
-# For simple board + shield combinations, add them to the top level board and
-# shield arrays, for more control, add individual board + shield combinations
-# to the `include` property. You can also use the `cmake-args` property to
-# pass flags to the build command and `artifact-name` to assign a name to
-# distinguish build outputs from each other:
-#
-# board: [ "nice_nano_v2" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano_v2
-#     shield: reviung41
-#   - board: nice_nano_v2
-#     shield: corne_left
-#     cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
-#     artifact-name: corne_left_with_logging
-#
+# Build matrix for Photon keyboard in minimalistic dongle mode.
+# Targets:
+#   photon           — standalone USB (no dongle)
+#   photon_dongle    — XIAO BLE acting as USB central dongle
+#   photon_peripheral — Photon as BLE peripheral (pair with dongle)
+#   *_settings_reset — clear all BLE bonds (use before re-pairing)
 ---
-board: ["minimi40"]
 include:
-  - board: bakeneko60_go
-    artifact-name: bakeneko60_go
-  - board: bakeneko60_go
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: bakeneko60_go_studio  
-  - board: ck65_w
-    artifact-name: ck65_w
-  - board: ck65_w
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: ck65_w_studio
-  - board: ck60_w
-    artifact-name: ck60_w
-  - board: ck60_w
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: ck60_w_studio
-  - board: photon
+  # Photon standalone (USB only, no split)
+  - board: photon//zmk
     artifact-name: photon
-  - board: photon
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: photon_studio
-  - board: minimi40
-    artifact-name: minimi40
-  - board: minimi40
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: minimi40_studio
-  - board: cerberus
-    artifact-name: cerberus
-  - board: cerberus
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: cerberus_studio
-  - board: link_right
-    shield: nice_view
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: link_right_studio
-  - board: link_left
-    shield: nice_view
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: link_left_studio  
+
+  # Seeed XIAO BLE as the USB central dongle
+  - board: xiao_ble
+    shield: photon_dongle
+    artifact-name: photon_dongle
+
+  # Photon as BLE peripheral for dongle mode
+  - board: photon//zmk
+    cmake-args: -DEXTRA_CONF_FILE=${GITHUB_WORKSPACE}/boards/cannonkeys/photon/photon_peripheral.conf
+    artifact-name: photon_peripheral
+
+  # Settings reset — flash to clear BLE bonds before re-pairing
+  - board: xiao_ble
+    shield: settings_reset
+    artifact-name: dongle_settings_reset
+  - board: photon//zmk
+    shield: settings_reset
+    artifact-name: photon_settings_reset
