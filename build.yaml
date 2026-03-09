@@ -13,6 +13,8 @@ include:
   # Seeed XIAO BLE as the USB central dongle
   - board: xiao_ble
     shield: photon_dongle
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: photon_dongle
 
   # Photon as BLE peripheral for dongle mode
