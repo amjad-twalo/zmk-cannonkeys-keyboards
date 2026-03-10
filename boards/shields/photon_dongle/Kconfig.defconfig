@@ -32,6 +32,13 @@ config ZMK_SPLIT_ROLE_CENTRAL
 config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 1
 
+# Forward the peripheral's battery layer over USB to the host OS
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+
 # 1 peripheral + 5 BLE profiles + 1 headroom
 config BT_MAX_CONN
     default 7
