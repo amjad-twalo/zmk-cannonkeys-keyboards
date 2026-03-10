@@ -180,6 +180,7 @@ RC(5,0) RC(5,1)
 
     aliases {
         led-red = &red_led;
+        led-green = &dummy_green_led;
         led-blue = &blue_led;
     };
 
@@ -190,6 +191,13 @@ RC(5,0) RC(5,1)
         };
         red_led: led_1 {
             gpios = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+        };
+        dummy_green_led: led_2 {
+            /* The official zmk-rgbled-widget strictly demands 3 LED colors.
+             * The photon board only has Red and Blue.
+             * Mapping Green to an unused, unconnected pin so the build passes.
+             */
+            gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
         };
     };
 
